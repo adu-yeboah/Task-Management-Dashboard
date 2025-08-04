@@ -1,8 +1,15 @@
 @import "tailwindcss";
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+
+
+@theme {
+  --color-primary: #2EACE1;
+  --color-background: #F3F6FD;
+  --color-gray: #575454;
 }
 
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+button {
+  cursor: pointer;
+}

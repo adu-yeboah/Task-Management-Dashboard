@@ -1,4 +1,4 @@
-import DashboardLayout from "@/components/dashboardLayout"
+import DashboardLayout from "@/layout/dashboardLayout"
 import Home from "@/pages/home"
 import Login from "@/pages/login"
 import { createBrowserRouter } from "react-router"
@@ -10,7 +10,7 @@ export const createRouter = () => {
             element: <Login />,
         },
         {
-            path: "/dashboard",
+            path: "/",
             element: <DashboardLayout />,
 
             children: [
