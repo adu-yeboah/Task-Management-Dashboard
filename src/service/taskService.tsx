@@ -1,24 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import type { Task, TaskInput } from "@/types/task";
 import { instance } from "@/utils/api";
-
-export interface Task {
-  id: number;
-  todo: string;
-  completed: boolean;
-  userId: number;
-}
-
-export interface TaskInput {
-  todo: string;
-  completed: boolean;
-  userId: number;
-}
 
 class TaskService {
   // Fetch all tasks
-  async getAllTasks(): Promise<Task[]> {
+  async getAllTasks(userId: number): Promise<Task[]> {
     try {
-      const response = await instance.get<{ todos: Task[] }>('/todos');
+      const response = await instance.get<{ todos: Task[] }>(`/todos/user/${userId}`);
       return response.data.todos;
     } catch (error) {
       throw this.handleError(error);

@@ -35,7 +35,7 @@ export default function Sidebar() {
         dark:bg-gray-800 bg-gray-100 text-black dark:text-white transition-all duration-300 h-screen fixed"
       >
         {/* Logo */}
-        <div className="flex items-center justify-between h-16 px-4 border-b border-gray-700">
+        <div className="flex items-center justify-between h-16 px-4 ">
 
           <div className="flex items-center space-x-2">
             <span className="text-2xl font-bold bg-indigo-600 text-white p-2 rounded">TMD</span>
@@ -47,7 +47,7 @@ export default function Sidebar() {
         </div>
 
         {/* Navigation */}
-        <nav className="flex-1 px-2 py-4 space-y-1 overflow-y-auto">
+        <nav className="flex-1 px-2 py-4 space-y-4 overflow-y-auto">
           {navItems.map((item) => (
             <Link
               key={item.path}

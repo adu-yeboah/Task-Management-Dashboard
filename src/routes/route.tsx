@@ -1,6 +1,9 @@
 import DashboardLayout from "@/layout/dashboardLayout"
+import AddTask from "@/pages/addTask"
 import Home from "@/pages/home"
 import Login from "@/pages/login"
+import Task from "@/pages/task"
+import Tasks from "@/pages/tasks"
 import { createBrowserRouter } from "react-router"
 
 export const createRouter = () => {
@@ -20,15 +23,15 @@ export const createRouter = () => {
                 },
                 {
                     path: "/tasks",
-                    element: <Home />
+                    element: <Tasks />
                 },
                 {
                     path: "/tasks/:id",
-                    element: <Home />
+                    element: <Task />
                 },
                 {
                     path: "/add-task",
-                    element: <Home />
+                    element: <AddTask />
                 },
             ]
         }

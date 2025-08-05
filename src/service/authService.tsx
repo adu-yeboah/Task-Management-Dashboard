@@ -22,6 +22,15 @@ class authApi {
         }
     }
 
+    async refreshToken(refreshToken: string | null): Promise<any> {
+        try {
+            const response = await instance.post('/auth/refresh', { refreshToken });
+            return response.data;
+        } catch (error) {
+            this.handleError(error)
+        }
+    }
+
     private handleError(error: any): Error {
         if (error.response) {
             const message = error.response.data.detail || error.response.data || 'An error occurred';

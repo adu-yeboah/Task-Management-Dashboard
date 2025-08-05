@@ -1,8 +1,6 @@
-// src/contexts/ThemeContext.tsx
 import React, { createContext, useState, useEffect, useContext,type ReactNode } from 'react';
 
 interface ThemeContextType {
-  theme: 'light' | 'dark';
   toggleTheme: () => void;
 }
 
@@ -32,7 +30,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ toggleTheme }}>
       {children}
     </ThemeContext.Provider>
   );

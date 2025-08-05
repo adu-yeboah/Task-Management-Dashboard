@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { logout, setCredentials } from '@/redux/authSlice';
+import { getMe, logout, setCredentials } from '@/redux/authSlice';
 import type { AppDispatch, RootState } from '@/redux/store';
+import type { User } from '@/types/auth';
 import { useDispatch, useSelector } from 'react-redux';
 
 
@@ -16,9 +17,14 @@ export const useAuth = () => {
     dispatch(logout());
   };
 
+  const getUser = (user: User) => {
+    dispatch(getMe({user}))
+  }
+
   return {
     auth,
     handleLogin,
     handleLogout,
+    getUser,
   };
 };
