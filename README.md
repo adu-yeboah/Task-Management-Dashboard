@@ -1,69 +1,73 @@
-# React + TypeScript + Vite
+# Task Management System (TMS)
+A modern, responsive task management application built with React and TypeScript, designed to help users create, manage, and track tasks efficiently. The system integrates secure authentication, intuitive task management, and a clean dashboard for a seamless user experience across all devices.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Key Features
+User Authentication
+Task Management
+CRUD Operations
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Technologies Used
+Frontend
 
-## Expanding the ESLint configuration
+React (v18+): Component-based UI framework.
+TypeScript: Static typing for enhanced code reliability.
+React Hook Form: Simplified form management and validation.
+Zod: Schema validation for forms and API responses.
+TanStack Query (React Query): Asynchronous state management and data fetching.
+Tailwind CSS: Utility-first CSS for responsive and modern styling.
+React Router: Client-side routing with protected routes.
+React Icons: Lightweight icon library for UI enhancement.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Backend (Mocked)
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+DummyJSON: Public mock API for /todos (tasks) and /auth/login (authentication).
+Axios: Promise-based HTTP client for API requests.
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+Installation
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Clone the Repository:
+```clone https://github.com/yourusername/task-management-system.git```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+```cd task-management-system```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Install Dependencies:
+```npm install``
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Configure Environment Variables:
+Create a .env file in the root directory with the following:
+textVITE_BASE_URL=https://dummyjson.com
+
+Run the Development Server:
+bashnpm run dev
+The app will be available at http://localhost:3000.
+
+# login Access
+username: 
+```emily```
+password:
+```emilyspass```
+
+# Project Structure
+src/
+├── components/      # Reusable UI components 
+|── context/         # React context for shared state (themeContext)
+├── hooks/           # Custom React hooks (useAuth, useTasks)
+|── lib/             # External library configurations
+├── pages/           # Page components
+|── routes/         # Route definitions for React Router
+├── redux/           
+├── services/          # API service layer
+├── types/            # TypeScript type definitions
+├── utils/            # Utility functions
+├── App.tsx           
+└── main.tsx          
+
+# Key Design Decisions
+
+Modular Architecture: Separated concerns with dedicated folders for components, services, and state management to ensure scalability.
+API Integration: Used TanStack Query for efficient data fetching and caching, with Axios for HTTP requests to the DummyJSON API.
+State Management: Implemented Redux Toolkit for global state (authSlice for user data, filterSlice for task filters).
+Form Handling: Leveraged React Hook Form with Zod for robust form validation and user-friendly error messages.
+Protected Routes: Used React Router to restrict dashboard access to authenticated users, redirecting others to the login page.
+Field Mapping: Mapped form fields (title, status) to DummyJSON’s todo and completed fields; description stored client-side due to API limitations.
