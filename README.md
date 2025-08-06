@@ -27,16 +27,23 @@ Axios: Promise-based HTTP client for API requests.
 Installation
 
 Clone the Repository:
-```clone https://github.com/yourusername/task-management-system.git```
-
-```cd task-management-system```
+``` bash
+ clone https://github.com/yourusername/task-management-system.git
+```
+``` bash
+cd task-management-system``
+```
 
 Install Dependencies:
-```npm install``
+``` bash  
+  npm install
+```
 
 Configure Environment Variables:
 Create a .env file in the root directory with the following:
-textVITE_BASE_URL=https://dummyjson.com
+``` bash
+VITE_BASE_URL=https://dummyjson.com
+```
 
 Run the Development Server:
 bashnpm run dev
@@ -44,30 +51,50 @@ The app will be available at http://localhost:3000.
 
 # login Access
 username: 
-```emily```
+``` bash 
+emily
+```
 password:
-```emilyspass```
+``` bash
+emilyspass
+```
 
 # Project Structure
 src/
-├── components/      # Reusable UI components 
-|── context/         # React context for shared state (themeContext)
-├── hooks/           # Custom React hooks (useAuth, useTasks)
-|── lib/             # External library configurations
-├── pages/           # Page components
-|── routes/         # Route definitions for React Router
-├── redux/           
-├── services/          # API service layer
-├── types/            # TypeScript type definitions
-├── utils/            # Utility functions
-├── App.tsx           
-└── main.tsx          
+
+├── components/   --- # Reusable UI components 
+
+├── context/  ---  # React context for shared state (themeContext)
+
+├── hooks/    ---       # Custom React hooks (useAuth, useTasks)
+
+├── lib/      ---       # External library configurations (Axios, etc.)
+
+├── pages/      ---     # Page components (Login, Dashboard, etc.)
+
+├── routes/    ---      # Route definitions for React Router
+
+├── redux/      ---     # Redux slices and store configuration
+
+├── services/   ---     # API service functions
+
+├── types/      ---     # TypeScript type definitions
+
+├── utils/    ---       # Utility/helper functions
+
+├── App.tsx     ---     # Main App component
+
+└── main.tsx       ---  # Entry point
 
 # Key Design Decisions
-
 Modular Architecture: Separated concerns with dedicated folders for components, services, and state management to ensure scalability.
-API Integration: Used TanStack Query for efficient data fetching and caching, with Axios for HTTP requests to the DummyJSON API.
+
+API Integration: Used TanStack Query for efficient data fetching, with Axios for HTTP requests to the DummyJSON API.
+
 State Management: Implemented Redux Toolkit for global state (authSlice for user data, filterSlice for task filters).
+
 Form Handling: Leveraged React Hook Form with Zod for robust form validation and user-friendly error messages.
+
 Protected Routes: Used React Router to restrict dashboard access to authenticated users, redirecting others to the login page.
+
 Field Mapping: Mapped form fields (title, status) to DummyJSON’s todo and completed fields; description stored client-side due to API limitations.
